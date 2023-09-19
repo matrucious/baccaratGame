@@ -20,15 +20,16 @@ public class BaccaratGameTests {
 		game = new BaccaratGame(mockDeck, "John");
 	}
 
+	// Test that the game is initialized correctly
 	@Test
 	public void testDealInitialCards() {
 		game.dealInitialCards();
 		String result = game.gameResult();
-		// We don't know the exact cards, but we know both players should have cards in their hands.
 		assertTrue(result.contains("John"));
 		assertTrue(result.contains("Emil"));
 	}
 
+	// Test that the game plays as intended
 	@Test
 	public void testPlayRoundNaturalWin() {
 		Deck mockDeck = MockUtils.createMockedDeckWithCards(
@@ -43,7 +44,7 @@ public class BaccaratGameTests {
 		assertTrue(game.gameResult().contains("Winner: Emil"));
 	}
 
-
+	// Test for making sure a third card is being used by player
 	@Test
 	public void testPlayRoundThirdCardDrawn() {
 		Deck mockDeck = MockUtils.createMockedDeckWithCards(
@@ -58,6 +59,7 @@ public class BaccaratGameTests {
 		assertTrue(result.contains("John | 0")); // 2 + 3 + 5 = 10 % 10 = 0
 	}
 
+	// Test for reset logic
 	@Test
 	public void testResetRound() {
 		game.dealInitialCards();
@@ -66,6 +68,7 @@ public class BaccaratGameTests {
 		assertTrue(result.contains("Tie!"));
 	}
 
+	// Test for invalid card exception in dealing initial cards
 	@Test
 	public void testInvalidCardExceptionInDealInitialCards() {
 		Deck mockDeck = MockUtils.createMockedDeckWithCards(
@@ -75,6 +78,7 @@ public class BaccaratGameTests {
 		assertThrows(InvalidCardException.class, () -> game.dealInitialCards());
 	}
 
+	// Test for invalid card exception in play round logic
 	@Test
 	public void testInvalidCardExceptionInPlayRound() {
 		Deck mockDeck = MockUtils.createMockedDeckWithCards(

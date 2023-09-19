@@ -1,12 +1,11 @@
 package dsb.intervju.sondre.BaccaratGame.model;
 
-import dsb.intervju.sondre.BaccaratGame.exceptions.InvalidCardException;
-
 public class BaccaratGame {
 
     private final Player player;
     private final Player banker;
     private Deck deck;
+
 
     public BaccaratGame(Deck deck, String playerName) {
         this.deck = deck;
@@ -14,6 +13,7 @@ public class BaccaratGame {
         this.banker = new Player("Emil");
     }
 
+    // Deal two cards to each player
     public void dealInitialCards() {
         player.addCardToHand(deck.drawCard());
         banker.addCardToHand(deck.drawCard());
@@ -39,7 +39,7 @@ public class BaccaratGame {
         }
     }
 
-
+    // Returns a string with the result of the game
     public String gameResult() {
         int youScore = player.calculateScore();
         int bankerScore = banker.calculateScore();
@@ -49,17 +49,17 @@ public class BaccaratGame {
         } else if (youScore < bankerScore) {
             return "Winner: " + banker.getName() + "\n" + player + "\n" + banker;
         } else {
-            // Added logic for tie situation
             return "Tie!\n" + player + "\n" + banker;
         }
     }
 
-
+    // Resets the game for a new round
     public void resetRound() {
         player.clearHand();
         banker.clearHand();
     }
 
+    // Set deck for new round in case of new deck each round
     public void setDeck(Deck deck) {
         this.deck = deck;
     }

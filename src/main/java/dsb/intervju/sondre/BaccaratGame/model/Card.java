@@ -46,6 +46,7 @@ public class Card {
         };
     }
 
+    // Returns the value of the card as an integer
     public int getCardValue() {
         return switch (this.value) {
             case "ACE" -> 1;

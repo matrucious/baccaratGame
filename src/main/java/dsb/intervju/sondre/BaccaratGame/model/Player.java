@@ -7,7 +7,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Player {
-    private String name;
+    private final String name;
     private List<Card> hand;
 
     public Player(String name) {
@@ -25,6 +25,8 @@ public class Player {
     }
 
     // Logic Functions
+
+    // Add a card to the player's hand, if it is valid
     public void addCardToHand(Card card) {
         if (card == null) {
             throw new InvalidCardException("Card cannot be null.");
@@ -40,11 +42,13 @@ public class Player {
         hand.add(card);
     }
 
+    // Calculate the score of the player's hand
     public int calculateScore() {
         int totalValue = hand.stream().mapToInt(Card::getCardValue).sum();
         return totalValue % 10;
     }
 
+    // Determine if the player should draw a third card
     public boolean shouldDrawThirdCard() {
         if (hand.isEmpty()) {
             return false;  // Don't draw if the hand is empty
@@ -54,6 +58,7 @@ public class Player {
         return score <= 5;
     }
 
+    // Determine if the banker should draw a third card
     public boolean shouldDefaultPlayerDrawThirdCard(Card playerThirdCard) {
         if (hand.isEmpty()) {
             return false;  // Don't draw if the hand is empty

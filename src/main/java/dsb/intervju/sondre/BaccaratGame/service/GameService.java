@@ -22,6 +22,7 @@ public class GameService {
 
     private static final String SHUFFLE_API_URL = "https://intervju.dsbnorge.no/api/v1/shuffle";    // Can be replaced with an envar
 
+    // Service method for playing a single round of Baccarat
     public String playBaccaratOnce() {
         List<Card> cards = fetchShuffledDeck();
         if (cards.size() != 52) {
@@ -40,6 +41,8 @@ public class GameService {
         return game.gameResult();
     }
 
+
+    // Service method for playing multiple rounds of Baccarat
     public ResponseEntity<String> playBaccarat(String playerName, int numberOfRounds, boolean newDeckEachRound) {
         List<Card> cards = fetchShuffledDeck();
         if (cards.size() != 52) {
@@ -78,6 +81,7 @@ public class GameService {
         return ResponseEntity.ok(result.toString());
     }
 
+    // Fetch a shuffled deck from the API
     private List<Card> fetchShuffledDeck() {
         Card[] cards = webClientBuilder.build()
                 .get()
