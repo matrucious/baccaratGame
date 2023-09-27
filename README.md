@@ -2,6 +2,16 @@
 
 This project simulates the Baccarat card game. Players are dealt cards, and based on the Baccarat rules, they might draw a third card. The winner is determined based on the scores.
 
+# Table of Contents
+- [Prerequisites](#prerequisites)
+- [Installation and Setup](#installation-and-setup)
+- [Running the Application](#running-the-application)
+- [Using the RESTful API](#using-the-restful-api)
+- [Running Tests](#running-tests)
+- [Features](#features)
+- [Troubleshooting](#troubleshooting)
+- [Contributing](#contributing)
+
 ## Prerequisites
 
 - Java JDK (recommended version 20 or above)
@@ -65,9 +75,9 @@ If you encounter any issues while setting up or running the project, please chec
 
 ## Contributing
 
-As this is the proposed solution to a case, there are no contributions expected. Please inform the author if any issues arise with this
+As this is the proposed solution to a case, there are no contributions expected. However, if you have any suggestions or improvements, feel free to open an issue or a pull request.
 
-# Case text - Baccarat Game 
+# Case text - Baccarat Game (ORIGINAL)
 https://intervju.dsbnorge.no/
 
 ##  Kan du slå Emil i Baccarat? 
