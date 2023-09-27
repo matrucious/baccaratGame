@@ -34,6 +34,14 @@ This project simulates the Baccarat card game. Players are dealt cards, and base
    mvn install
    ```
 
+## Building the Project
+
+To build the project using Maven:
+```
+mvn package
+```
+
+
 ## Running the Application
 
 To run the Baccarat game simulation:
