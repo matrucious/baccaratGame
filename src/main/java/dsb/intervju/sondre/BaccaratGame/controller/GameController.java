@@ -6,7 +6,6 @@ import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,8 +16,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class GameController {
 
-    @Autowired
-    private GameService gameService;
+    private final GameService gameService;
+
+    public GameController(GameService gameService) {
+        this.gameService = gameService;
+    }
 
     @Operation(summary = "Play Baccarat Once", description = "Plays one round of Baccarat.")
     @GetMapping("/play")
@@ -54,7 +56,7 @@ public class GameController {
             @RequestParam int numberOfRounds,
             @Parameter(
                     description = "Whether to use a new deck for each round (default: false).",
-                    example = "true",
+                    example = "false",
                     schema = @Schema(implementation = Boolean.class)
             )
             @RequestParam(required = false, defaultValue = "false") boolean newDeckEachRound) {

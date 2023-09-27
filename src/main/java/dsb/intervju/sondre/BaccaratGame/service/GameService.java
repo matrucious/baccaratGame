@@ -5,7 +5,6 @@ import dsb.intervju.sondre.BaccaratGame.exceptions.OutOfCardsException;
 import dsb.intervju.sondre.BaccaratGame.model.BaccaratGame;
 import dsb.intervju.sondre.BaccaratGame.model.Card;
 import dsb.intervju.sondre.BaccaratGame.model.Deck;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
@@ -17,10 +16,13 @@ import java.util.List;
 @Service
 public class GameService {
 
-    @Autowired
-    private WebClient.Builder webClientBuilder;
+    private final WebClient.Builder webClientBuilder;
 
     private static final String SHUFFLE_API_URL = "https://intervju.dsbnorge.no/api/v1/shuffle";    // Can be replaced with an envar
+
+    public GameService(WebClient.Builder webClientBuilder) {
+        this.webClientBuilder = webClientBuilder;
+    }
 
     // Service method for playing a single round of Baccarat
     public String playBaccaratOnce() {
