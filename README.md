@@ -33,6 +33,14 @@ java -jar target/BaccaratGame-0.0.1-SNAPSHOT.jar
 
 Note: Ensure you have built the project using Maven before attempting to run the jar.
 
+
+## Using the RESTful API
+
+The application offers a RESTful API to play the game and view results. The API is documented using Swagger, and can be accessed at the following URL:
+```
+http://localhost:8080/swagger-ui.html
+```
+
 ## Running Tests
 
 To run the tests for the project:
@@ -60,6 +68,7 @@ If you encounter any issues while setting up or running the project, please chec
 As this is the proposed solution to a case, there are no contributions expected. Please inform the author if any issues arise with this
 
 # Case text - Baccarat Game 
+https://intervju.dsbnorge.no/
 
 ##  Kan du slå Emil i Baccarat? 
 
